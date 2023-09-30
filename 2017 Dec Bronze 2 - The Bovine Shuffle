@@ -1,0 +1,36 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numCows, i, x;
+    cin >> numCows;
+    int shuffle[numCows];
+    for (i=0; i<numCows;i++){
+        cin>>shuffle[i];
+    }
+    int order[numCows];
+    for (i=0; i<numCows;i++){
+        cin>>order[i];
+    }
+    int num;
+    int current[numCows];
+    for (x=1;x<=3;x++){
+        for (i=0;i<numCows;i++) {
+            num=shuffle[i];//content
+            current[i]=order[num-1];
+        }
+        for (i=0;i<numCows;i++){
+            order[i]=current[i];
+        }
+    }
+    for (i=0;i<numCows;i++){
+        cout<<order[i]<<"\n";
+    }
+    //misunderstood q, instead of following the instructions of that index go to X position, the REVERSE. so X position go to index (X is the int)
+    
+    
+    
+
+   
+}
