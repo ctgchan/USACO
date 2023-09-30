@@ -1,0 +1,47 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numRSegments, numBSegments, i, lengthR, limitR, j, lengthB, limitB;
+    int lengthsR[numRSegments];
+    int limitsR[numRSegments];
+    int lengthTotal=0;
+    cin >> numRSegments >> numBSegments;
+    for (i=0;i<numRSegments;i++){
+        cin>>lengthR >> limitR;
+        lengthsR[i]=lengthR;
+        limitsR[i]=limitR;
+        lengthTotal+=lengthR;
+    }
+    int roadR[lengthTotal];
+    int roadB[lengthTotal];
+    
+    for (i=0;i<numRSegments;i++) {
+        //cout<<"lengthr"<<lengthsR[i]<<"\n";
+        for (j=0; j<lengthsR[i];j++){
+            roadR[j]=limitsR[i];
+           // cout<<roadR[j]<<"\n";
+        }
+    }
+  
+    for (i=0;i<numBSegments;i++){
+        cin>>lengthB>>limitB;
+        for (j=0;j<lengthB;j++){
+            roadB[j]=limitB;
+          //  cout<<roadB[j]<<"\n";
+        }
+    }
+    int maxDiff=0;
+    for (i=0;i<lengthTotal;i++){
+        if((roadB[i]-roadR[i])>maxDiff){
+            //here it says roadR sometimes has 21094820138 value and roadB has 0 value, but if i test by printing out only roadR or only roadB elements all normal - why???? 
+            //otherwise code works and does come out with 5
+            //cout<<roadR[i]<<"\n";
+            //cout<<roadB[i]<<roadR[i]<<"\n";
+            maxDiff=(roadB[i]-roadR[i]);
+            //cout<<maxDiff<<"\n";
+        }
+    }
+   cout<<maxDiff<<"\n";
+}
